@@ -9,7 +9,6 @@ import os
 from datetime import datetime
 import config
 from exchange import Exchange
-from strategy import check_mtf_signal
 from indicators import add_entry_indicators, add_trend_indicators, get_trend_bias
 from risk_manager import RiskManager
 from position_manager import PositionManager
