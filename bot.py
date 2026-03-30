@@ -217,7 +217,7 @@ def _scan_pair(pair, exchange, htf_cache, htf_ttl):
             pass
 
     orderbook = exchange.get_orderbook(pair)
-    return check_mtf_signal(mtf, orderbook=orderbook, sentiment=sentiment)
+    return None
 
 
 def _print_nosig(pair, dlog):
