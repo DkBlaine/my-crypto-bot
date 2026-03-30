@@ -9,6 +9,7 @@ import os
 from datetime import datetime
 import config
 from exchange import Exchange
+from strategy import check_mtf_signal
 from indicators import add_entry_indicators, add_trend_indicators, get_trend_bias
 from risk_manager import RiskManager
 from position_manager import PositionManager
@@ -217,14 +218,7 @@ def _scan_pair(pair, exchange, htf_cache, htf_ttl):
             pass
 
     orderbook = exchange.get_orderbook(pair)
-return None, {
-    "long_score": "?",
-    "short_score": "?",
-    "total_score": 0,
-    "direction_reason": "NONE",
-    "reasons": [],
-    "failed": ["no trigger"]
-}
+    return check_mtf_signal(mtf, orderbook=orderbook, sentiment=sentiment)
 
 
 def _print_nosig(pair, dlog):
