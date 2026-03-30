@@ -217,7 +217,14 @@ def _scan_pair(pair, exchange, htf_cache, htf_ttl):
             pass
 
     orderbook = exchange.get_orderbook(pair)
-    return None
+return None, {
+    "long_score": "?",
+    "short_score": "?",
+    "total_score": 0,
+    "direction_reason": "NONE",
+    "reasons": [],
+    "failed": ["no trigger"]
+}
 
 
 def _print_nosig(pair, dlog):
